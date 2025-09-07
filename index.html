@@ -73,7 +73,7 @@
 </head>
 <body>
   <h2 id="title">🎉 Consulta de invitados</h2>
-  <p id="instructions">Escribe tu nombre exactamente como aparece en tu invitación:</p>
+  <p id="instructions">Escribe tu nombre y primer apellido para saber el número de invitados que incluye tu tarjeta:</p>
   <input type="text" id="busqueda" placeholder="Ejemplo: Juan David Rosero" />
   <button id="languageToggle">EN 🇺🇸</button>
   <div id="resultado"></div>
@@ -107,7 +107,7 @@
     const texts = {
       es: {
         title: "🎉 Consulta de invitados",
-        instructions: "Escribe tu nombre exactamente como aparece en tu invitación:",
+        instructions: "Escribe tu nombre y primer apellido para saber el número de invitados que incluye tu tarjeta:",
         placeholder: "Ejemplo: Juan David Rosero",
         found: (name, count) => `🎉 ¡Hola <strong>${name}</strong>! Tu invitación es por <strong>${count}</strong> invitado(s), incluyéndote a ti.`,
         notFound: "❌ Nombre no encontrado. Verifica la ortografía.",
@@ -115,7 +115,7 @@
       },
       en: {
         title: "🎉 Guest Lookup",
-        instructions: "Type your full name exactly as it appears on your invitation:",
+        instructions: "Type your first and last name to know the number of guests included in your card:",
         placeholder: "Example: John Doe",
         found: (name, count) => `🎉 Hello <strong>${name}</strong>! Your invitation includes <strong>${count}</strong> guest(s), including yourself.`,
         notFound: "❌ Name not found. Please check your spelling.",
@@ -161,3 +161,4 @@
   </script>
 </body>
 </html>
+
