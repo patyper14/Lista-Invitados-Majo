@@ -12,7 +12,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: url("fondo.jpg") no-repeat center center fixed;
+      background: url("fondo-nuevo.jpg") no-repeat center center fixed;
       background-size: cover;
       color: white;         
       font-weight: bold;    
@@ -45,6 +45,21 @@
       font-size: 16px;
     }
 
+    #languageToggle {
+      margin-top: 15px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.3);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+    }
+
+    #languageToggle:hover {
+      background: rgba(255,255,255,0.5);
+    }
+
     #resultado { 
       margin-top: 20px; 
       font-size: 18px; 
@@ -54,26 +69,13 @@
       color: white;
       font-weight: bold;
     }
-
-    #languageToggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.3);
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      color: white;
-    }
   </style>
 </head>
 <body>
-  <button id="languageToggle">EN 🇺🇸</button>
   <h2 id="title">🎉 Consulta de invitados</h2>
   <p id="instructions">Escribe tu nombre exactamente como aparece en tu invitación:</p>
   <input type="text" id="busqueda" placeholder="Ejemplo: Juan David Rosero" />
+  <button id="languageToggle">EN 🇺🇸</button>
   <div id="resultado"></div>
 
   <script>
