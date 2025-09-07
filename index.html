@@ -4,35 +4,36 @@
   <meta charset="UTF-8">
   <title>Buscador de Invitados</title>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      padding: 40px;
-      max-width: 600px;
-      margin: auto;
+    body { 
+      font-family: sans-serif; 
+      padding: 30px; 
+      background: url("fondo.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
       text-align: center;
     }
-    h2 {
-      color: #333;
+    h2, p {
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* sombra para legibilidad */
     }
-    input {
-      padding: 12px;
-      width: 100%;
-      max-width: 400px;
-      font-size: 16px;
+    input { 
+      padding: 10px; 
+      width: 300px; 
       border-radius: 6px;
       border: 1px solid #ccc;
-      margin-top: 20px;
+      font-size: 16px;
     }
-    #resultado {
-      margin-top: 30px;
-      font-size: 18px;
+    #resultado { 
+      margin-top: 20px; 
+      font-size: 18px; 
+      padding: 10px;
+      border-radius: 6px;
+      background: rgba(0,0,0,0.5); /* fondo semitransparente */
     }
   </style>
 </head>
 <body>
-  <h2>🎉 Consulta de Invitados</h2>
-  <p>Escribe tu nombre y primer apellido para saber tu número de invitados:</p>
+  <h2>Consulta de invitados</h2>
+  <p>Escribe tu nombre y primer apellido para saber el número de invitados que incluye tu tarjeta:</p>
   <input type="text" id="busqueda" placeholder="Ejemplo: Juan David Rosero" />
   <div id="resultado"></div>
 
@@ -115,7 +116,7 @@
       if (nombre === "") {
         resultado.innerHTML = "";
       } else if (cantidad !== undefined) {
-        resultado.innerHTML = `🎉 ¡Hola <strong>${nombre}</strong>! Puedes llevar <strong>${cantidad}</strong> invitado(s).`;
+        resultado.innerHTML = `🎉 ¡Hola ${nombre}! Tu invitación es por <strong>${cantidad}</strong> invitado(s), incluyéndote a ti.`;
       } else {
         resultado.innerHTML = "❌ Nombre no encontrado. Verifica la ortografía.";
       }
