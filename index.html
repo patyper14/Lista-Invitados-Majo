@@ -150,6 +150,15 @@
       "Thomas Delahanty": 2
     };
 
+    // Crear mapa auxiliar en minúsculas
+    const invitadosLower = {};
+    for (let nombre in invitados) {
+      invitadosLower[nombre.toLowerCase()] = { 
+        original: nombre, 
+        cantidad: invitados[nombre] 
+      };
+    }
+
     let currentLang = "es";
 
     const texts = {
@@ -163,7 +172,7 @@
       },
       en: {
         title: "🎉 Guest Lookup",
-        instructions: "Type your first and last name to know the number of guests included in your card:",
+        instructions: "Type your first and last name to know the number of guests included in your invitation:",
         placeholder: "Example: John Doe",
         found: (name, count) => `🎉 Hello <strong>${name}</strong>! Your invitation includes <strong>${count}</strong> guest(s), including yourself.`,
         notFound: "❌ Name not found. Please check your spelling.",
@@ -192,14 +201,14 @@
     });
 
     inputEl.addEventListener("input", function () {
-      const name = this.value.trim();
-      const count = invitados[name];
+      const name = this.value.trim().toLowerCase(); // siempre en minúsculas
+      const guest = invitadosLower[name];
       const t = texts[currentLang];
 
       if (name === "") {
         resultEl.innerHTML = "";
-      } else if (count !== undefined) {
-        resultEl.innerHTML = t.found(name, count);
+      } else if (guest !== undefined) {
+        resultEl.innerHTML = t.found(guest.original, guest.cantidad);
       } else {
         resultEl.innerHTML = t.notFound;
       }
@@ -209,5 +218,3 @@
   </script>
 </body>
 </html>
-
-
