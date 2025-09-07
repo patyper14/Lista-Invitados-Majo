@@ -7,20 +7,37 @@
     body { 
       font-family: sans-serif;
       margin: 0;
-      height: 100vh; /* altura completa */
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* centra verticalmente */
-      align-items: center;     /* centra horizontalmente */
+      justify-content: center;
+      align-items: center;
       background: url("fondo-nuevo.jpg") no-repeat center center fixed;
       background-size: cover;
-      color: white;
-      font-weight: bold;
+      color: white;         
+      font-weight: bold;    
       text-align: center;
+      position: relative;   /* necesario para el overlay */
     }
+
+    /* Overlay para hacer la imagen más tenue */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4); /* negro 40% transparente */
+      z-index: 0; /* queda detrás del contenido */
+    }
+
+    h2, p, input, #resultado {
+      position: relative;
+      z-index: 1; /* asegura que el texto esté por encima del overlay */
+    }
+
     h2, p {
       text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
+
     input { 
       padding: 10px; 
       width: 300px; 
@@ -28,12 +45,15 @@
       border: 1px solid #ccc;
       font-size: 16px;
     }
+
     #resultado { 
       margin-top: 20px; 
       font-size: 18px; 
       padding: 10px;
       border-radius: 6px;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.5); /* cuadro translúcido */
+      color: white;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -130,5 +150,3 @@
   </script>
 </body>
 </html>
-
-
